@@ -1,7 +1,7 @@
 const root = document.getElementById('root');
 
 const header = document.createElement('h1');
-header.innerText = 'Coloring Nook';
+header.innerText = 'Coloring Hook';
 root.appendChild(header);
 
 // create a container
