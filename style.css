@@ -75,12 +75,3 @@ body {
   font-size: 3em;
   box-sizing: border-box;
 }
-
-body {
-  background: url(images/sunflowers.png);
-  background-color: goldenrod;
-}
-
-.img-online {
-  opacity: 0.5;
-}

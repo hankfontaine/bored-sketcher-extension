@@ -52,3 +52,39 @@ for (let i = 0; i < text.length; i++) {
 	// text[i].innerHTML = text[i].innerHTML.replace('the', 'SUNFLOWER');
 	// }
 }
+
+const appDataContainer = document.createElement('div');
+appDataContainer.classList.add('app-data-container');
+appDataContainer.style.height = '20vh';
+appDataContainer.style.width = '20vh';
+appDataContainer.style.backgroundColor = 'babyblue';
+appDataContainer.style.display = 'flex';
+appDataContainer.style.marginLeft = '10vw';
+appDataContainer.style.marginTop = '10vw';
+appDataContainer.style.alignItems = 'center';
+appDataContainer.style.justifyContent = 'center';
+
+header.prepend(appDataContainer);
+document.body.prepend(appDataContainer);
+
+async function getWeather(city) {
+	try {
+		const response = await fetch(
+			'https://api.openweathermap.org/data/2.5/weather?q=pittsburgh&appid=58450b382c323f3768b7db13df9825b8',
+			{ mode: 'cors' }
+		);
+		const cityData = await response.json();
+
+		console.log(cityData);
+
+		appDataContainer.append(
+			`temp is: ` + cityData.main.temp + `Kelvin.  Go look at some sunflowers!`
+		);
+	} catch (err) {
+		appDataContainer.innerHTML = '';
+		const errorSpace = document.createElement('div');
+		appDataContainer.appendChild(errorSpace);
+	}
+}
+
+getWeather('New York City');
